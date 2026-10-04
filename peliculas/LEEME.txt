@@ -1,0 +1,3 @@
+Pon aquí tus archivos de video (.mp4 / .webm / .m4v, mejor H.264 + AAC para que
+cualquier navegador los reproduzca) y asígnalos en data.js con el campo "archivo".
+Ejemplo:  { t: 'Batman: Hush', y: 2019, archivo: 'dcamu/batman-hush.mp4' }

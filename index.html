@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0B0B0D">
+    <meta name="description" content="Vesper: servidor personal de películas y series animadas de DC.">
+    <title>Vesper - Media Server</title>
+    <link rel="icon" href="logo_003_C.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://image.tmdb.org" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a class="saltar" href="#vista">Saltar al contenido</a>
+
+    <!-- Barra de navegación -->
+    <header class="navbar" id="navbar">
+        <a class="logo" href="#/" aria-label="Vesper, ir al inicio">
+            <img src="logo_003_C.png" alt="" width="96" height="38">
+            <span>VESPER</span>
+        </a>
+        <nav aria-label="Principal">
+            <ul>
+                <li><a href="#/" data-nav="inicio">Inicio</a></li>
+                <li><a href="#/universos" data-nav="universos">Universos</a></li>
+                <li><a href="#/peliculas" data-nav="peliculas">Películas</a></li>
+                <li><a href="#/series" data-nav="series">Series</a></li>
+                <li><a href="#/lista" data-nav="lista">Mi Lista <span class="contador" id="contador-lista" hidden></span></a></li>
+            </ul>
+        </nav>
+        <div class="acciones">
+            <label class="buscador">
+                <span class="sr-only">Buscar películas y series</span>
+                <input type="search" id="buscar" placeholder="Buscar" aria-label="Buscar películas y series" autocomplete="off" spellcheck="false">
+            </label>
+            <div class="perfil" title="Perfil">Perfil</div>
+        </div>
+    </header>
+
+    <!-- Banner principal (solo en Inicio) -->
+    <section class="hero" id="hero" aria-label="Destacadas">
+        <div class="hero-bg" id="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" id="hero-content">
+            <p class="hero-meta" id="hero-meta"></p>
+            <h1 class="hero-title" id="hero-title">Cargando…</h1>
+            <p class="hero-description" id="hero-desc">Conectando con la base de datos de Vesper.</p>
+            <div class="hero-buttons">
+                <button class="btn-play" id="hero-play" type="button">▶ Reproducir</button>
+                <button class="btn-list" id="hero-lista" type="button" aria-pressed="false">+ Mi Lista</button>
+                <button class="btn-info" id="hero-info" type="button">Más información</button>
+            </div>
+        </div>
+        <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Elegir destacada"></div>
+        <div class="hero-fadeBottom"></div>
+    </section>
+
+    <!-- Contenido de cada vista (lo genera app.js) -->
+    <main class="vista" id="vista" tabindex="-1"></main>
+
+    <footer class="pie">Vesper · servidor personal · datos e imágenes de <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">TMDB</a></footer>
+
+    <!-- Detalle de película -->
+    <dialog class="modal" id="detalle" aria-labelledby="det-titulo">
+        <div class="det-cabecera" id="det-cabecera">
+            <button class="cerrar" id="det-cerrar" type="button" aria-label="Cerrar">✕</button>
+            <div class="det-degradado"></div>
+            <div class="det-titulos">
+                <h2 id="det-titulo"></h2>
+                <p class="det-meta" id="det-meta"></p>
+            </div>
+        </div>
+        <div class="det-cuerpo">
+            <div class="det-botones">
+                <button class="btn-play" id="det-play" type="button">▶ Reproducir</button>
+                <button class="btn-list" id="det-lista" type="button" aria-pressed="false">+ Mi Lista</button>
+                <button class="btn-info" id="det-visto" type="button" aria-pressed="false">Marcar como vista</button>
+            </div>
+            <p class="det-tagline" id="det-tagline" hidden></p>
+            <p class="det-sinopsis" id="det-sinopsis"></p>
+            <ul class="chips" id="det-generos"></ul>
+            <section class="det-episodios" id="det-episodios" hidden>
+                <div class="ep-cab">
+                    <h3>Episodios</h3>
+                    <select id="det-temporada" aria-label="Temporada"></select>
+                    <p class="ep-resumen" id="det-ep-resumen"></p>
+                </div>
+                <ol class="ep-lista" id="det-ep-lista"></ol>
+            </section>
+            <button class="det-siguiente" id="det-siguiente" type="button" hidden></button>
+        </div>
+    </dialog>
+
+    <!-- Reproductor -->
+    <dialog class="modal modal-video" id="reproductor" aria-label="Reproductor">
+        <button class="cerrar" id="rep-cerrar" type="button" aria-label="Cerrar reproductor">✕</button>
+        <p class="rep-titulo" id="rep-titulo"></p>
+        <video id="rep-video" controls playsinline preload="metadata"></video>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <noscript><p class="sin-js">Vesper necesita JavaScript para mostrar el catálogo.</p></noscript>
+
+    <script src="config.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
