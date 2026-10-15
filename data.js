@@ -195,7 +195,7 @@ window.UNIVERSOS = [
         id: 'showcase',
         titulo: 'DC Showcase (cortometrajes)',
         corto: 'DC Showcase',
-        descripcion: 'Cortos animados que acompañaban a las películas de DC en Blu-ray. Algunos conectan con el DCAMU y el Tomorrowverse. "Constantine: The House of Mystery" y "Batman: Death in the Family" están en sus universos.',
+        descripcion: 'Cortos animados que acompañaban a las películas de DC en Blu-ray. Algunos conectan con el DCAMU y el Tomorrowverse.',
         numerar: false,
         grupos: [{
             titulo: null,
@@ -219,7 +219,7 @@ window.UNIVERSOS = [
         id: 'otras',
         titulo: 'Otras películas animadas de DC',
         corto: 'Otras',
-        descripcion: 'Películas animadas de DC fuera de la línea principal de Warner: Batman clásico de los 60, Teen Titans Go!, Lego y más. Quita las que no quieras.',
+        descripcion: 'Películas animadas de DC fuera de la línea principal de Warner: Batman clásico de los 60, Teen Titans Go!, Lego y más.',
         numerar: false,
         grupos: [{
             titulo: null,
@@ -242,7 +242,7 @@ window.UNIVERSOS = [
         tipo: 'serie',
         titulo: 'Series del DCAU',
         corto: 'Series DCAU',
-        descripcion: 'Las series del universo de Bruce Timm, en orden de estreno. Las películas del DCAU están en su propio universo.',
+        descripcion: 'Las series del universo de Bruce Timm. Las películas del DCAU están en su propio universo.',
         numerar: true,
         grupos: [{
             titulo: null,
